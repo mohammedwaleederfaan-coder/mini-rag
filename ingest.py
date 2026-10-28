@@ -24,8 +24,9 @@ WATERMARK = re.compile(r"(Download from\s+)?www\.finelybook\.com", re.IGNORECASE
 
 def clean_text(t: str) -> str:
     t = unicodedata.normalize("NFKC", t)
+    t = t.encode("utf-8", errors="ignore").decode("utf-8")   # يشيل الـ surrogates التالفة
     t = t.replace("\x00", "")
-    t = WATERMARK.sub("", t)              # remove the watermark text, keep the page
+    t = WATERMARK.sub("", t)
     t = re.sub(r"[ \t]+", " ", t)
     t = re.sub(r"\n{3,}", "\n\n", t)
     return t.strip()
