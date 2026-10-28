@@ -1,5 +1,8 @@
+# API
+fastapi
+uvicorn[standard]
 
-# Core RAG stack
+# RAG stack
 langchain-core
 langchain-community
 langchain-text-splitters
@@ -7,8 +10,5 @@ langchain-chroma
 langchain-ollama
 chromadb
 
-# PDF loading (used by PyPDFLoader)
+# PDF loading (used by ingest.py)
 pypdf
-
-# Notebook
-jupyterlab
